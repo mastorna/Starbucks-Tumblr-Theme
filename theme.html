@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+  <meta name="description" content="{MetaDescription}"/>
+                                      
+  <!-- META TAGS FOR FB OG -->
+
+  <meta property="og:title" content=""/>
+  <meta property="og:type" content=""/>
+  <meta property="og:url" content="http://starbucksdeveloper.tumblr.com/"/>
+  <meta property="og:image" content="http://www.starbucks.com/static/images/global/logo.png"/>
+  <meta property="og:site_name" content="Starbucks Developers Blog"/>
+  <meta property="fb:admins" content=""/>
+  <meta property="og:description" content="Random musings on software development at Starbucks."/>
+
+  <!-- DEFAULT COLORS -->
+  <meta name="color:Background" content="#fff"/>
+  <meta name="color:Footer Background" content="#222"/>
+  <meta name="color:Text" content="#000"/>
+  <meta name="color:Lighter Text" content="#888"/>
+  <meta name="color:Darker Text" content="#111"/>
+  <meta name="color:Accent" content="#2A8A15"/>
+  <meta name="color:White" content="#fff"/>
+  <meta name="color:Post Separator" content="#bbb"/>
+
+  <!-- Disqus Shortname -->
+  <meta name="text:Disqus Shortname" content=""/>
+  
+  <!-- Show Notes -->
+  <meta name="if:Show notes" content="1">
+
+  <link rel="shortcut icon" href="{Favicon}"/>
+  <link rel="alternate" type="application/rss+xml" name="RSS" href="{RSS}"/>
+
+<style type="text/css" media="screen">
+    html{font-size:87.5%}
+    body{background:{color:Background};color:{color:Text};font:normal 1em/1.5 Corbel,"Lucida Grande","Lucida Sans Unicode", "Lucida Sans",Tahoma,sans-serif;margin:0;padding:3em 0 0}
+    a,a:visited,a:active{color:{color:Accent}; padding:2px;}
+    a:hover{color:{color:White}; background-color:{color:Accent};text-decoration:none;}
+    h1,h2,h3,h4,h5,h6{color:{color:Darker Text};font-family:Corbel,"Lucida Grande","Lucida Sans Unicode", "Lucida Sans",Tahoma,sans-serif;font-weight:normal}
+    p{margin:0 0 1.5em}
+    ul,ol{margin:0 0 1.5em;padding-left:2.5em}
+    blockquote{border-left:2px solid {color:Lighter Text};color:{color:Lighter Text};margin:0 1em 1.5em;padding:0 1em}
+    /* LAYOUT */
+    #container{margin:0 auto;min-width:500px;width:37em}
+
+    /* HEADER */
+    #header h1{margin:0 0 3em;padding:0;}
+    #header h1 a{border:0;color:{color:Darker Text};text-decoration:none;}
+    #header h1 a:hover{color:{color:Accent};}
+    #header #navigation{float:right;list-style:none;margin:0.75em 0 3.75em;padding:0}
+    #header #navigation li{display:inline-block;margin:0 0.25em}
+    #header #navigation a{border-bottom:2px solid {color:Background};font-size:1.2em;line-height:1.8em;padding:0.25em;text-decoration:none}
+    #header #navigation a:hover{border-bottom-color:{color:Accent};text-decoration:none}
+
+    /* POSTS */
+    #posts { clear: left; }
+    .text,.link,.quote,.photo,.video,.audio,.chat,.photoset-post{border-bottom:1px dotted {color:Post Separator};margin-bottom:4.5em;}
+    .link .link-description{margin:0 0 1.5em}
+    .quote .words{border:0;color:{color:Text};font:normal 1.2em/1.3 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;margin:0 0 1em;padding:0}
+    .quote .source{color:{color:Lighter Text};font-style:italic}
+    .photo,.video, .photoset-post{text-align:center}
+    .photo .caption,.video .caption,.audio .caption,.quote .source,.photoset-post .caption{clear: right;margin-bottom:1.5em;margin-top:0.75em;text-align:left}
+    .photo a img{border:0;}
+    .chat ul.convo{list-style-type:none;padding:0;}
+    .chat ul.convo li{line-height:2;}
+    .chat ul.convo li .person { font-weight: bold; }
+    .chat ul.convo li.even .person{color:{color:Accent};}
+    .audio .playcount { float: right; }
+
+    /* POST FOOTERS */
+    .post-footer{list-style:none;font-size:0.857em;margin:3em 0;padding:0;text-align:right;}
+    .post-footer li{display:inline;margin-left:1em;padding:0}
+    
+    /* REBLOG */
+    .post-footer li.reblog{color:{color:Lighter Text};display:block;font-style:italic;margin-bottom:0.25em}
+    .post-footer li.date h3{coloar:{color:Lighter Text};display:inline;font-family:Helvetica,Arial,sans-serif;font-size:1em}
+    
+    /* TAGS */
+    .post-footer li.tags ul, .post-footer li.tags ul li{display:inline; padding: 0;}
+    .post-footer li.tags ul li {margin-left: 0.4em;}
+	
+	/* NOTES */
+	ol.notes { margin: 0; padding: 0; }
+	ol.notes li.note { margin: 0 0 0.75em 0; padding: 0 0 0.75em 0 }
+	ol.notes img.avatar { display: none; }
+
+    /* PAGINATION */
+    #pagination{margin:3em 0}
+    #pagination #pagecount{color:{color:Lighter Text};margin:0 1.5em}
+
+    /* FOOTER */
+    #footer{border-top:5px solid {color:Accent};background:{color:Footer Background};color:{color:Lighter Text};float:left;overflow:visible;padding:0 0 1.5em;width:100%}
+    #footer a{text-decoration:none}
+    #footer a:hover{color:{color:Lighter Text};}
+    #footer h3{border-bottom:1px solid {color:Lighter Text};color:{color:Lighter Text};font-size:1.5em;margin:2em 0 0.25em}
+    #footer ul{list-style:none;padding:0}
+    #footer ul li{line-height:2}
+    
+    /* FOLLOWING LIST */
+    #footer #following li { line-height: 30px; display: inline; }
+
+    /* FOOTER LAYOUT */ 
+    #footer-contain{margin:0 auto;padding:0;width:50em}
+    #footer-left{float:left;width:15em}
+    #footer-middle{float:left;margin-left:2.5em;width:15em}
+    #footer-right{float:left;margin-left:2.5em;width:15em}
+    
+    /* SEARCH */
+    #search input{display:inline;}
+    #searchresultcount{font-style:italic;margin: 3em 0;text-align: center;}
+    #searchresultcount .query{font-weight:bold;}
+    
+    .search_query, .tag {
+        font-weight: bold;
+    }  
+  
+    
+    /* CUSTOM CSS */
+    {CustomCSS}
+#header {
+height: 9.5em;
+}
+
+ul#skip {
+position: absolute;
+top: 0;
+left: -1000px;
+width: 100%;
+}
+ul#skip li {
+position: absolute;
+z-index: 1;
+margin: 0 0 0 111px;
+font-weight: bold;
+font-size: 1.2em;
+}
+
+#header a#logo {
+position: absolute;
+top: 8px;
+left: 0;
+padding: 13px;
+width: 85px;
+height: 84px;
+background: url(http://www.starbucks.com/static/images/global/logo.png) no-repeat 50% 50%;
+text-indent: -9999px;
+overflow: hidden;
+}
+
+
+.hasJS #utilities {
+position: absolute;
+top: -4px;
+right: 52px;
+padding: 0;
+background: none;
+}
+
+#utility_links {
+padding: 13px 0 0 0;
+font-size: 1.1em;
+line-height: 1.091;
+}
+.hasJS #utility_links {
+position: relative;
+z-index: 500;
+float: left;
+font-size: 0.850em;
+}
+.hasJS #utility_links ul {
+float: left;
+}
+#utility_links a, .utility_bold {
+font-weight: bold;
+}
+#starbucks_search fieldset {
+display: inline;
+border:none;
+}
+.hasJS #starbucks_search {
+float: left;
+clear: none;
+padding: 0;
+}
+button, input, select, textarea {
+margin: 0;
+padding: 4px 6px;
+border: 2px solid #EDEEEE;
+background: #EDEEEE;
+color: black;
+font: 1em Corbel,'Trebuchet MS','Helvetica Neue',Helvetica,Arial,sans-serif;
+vertical-align: bottom;
+}
+#starbucks_search input.search_input {
+float: left;
+width: 15em;
+}
+#starbucks_search input:focus, select:focus, textarea:focus {
+border-color: #71B43A;
+outline: none;
+}
+#utility_links a{
+text-decoration:none;
+font-weight:bold;
+}
+#utility_links li {
+position: relative;
+float: left;
+margin: 0 25px 0 0;
+list-style:none;
+}
+#international .current {
+position: relative;
+padding: 2px 2px 2px 25px;
+margin: 2px 0 2px 0;
+}
+.flag {
+position: absolute;
+top: 3px;
+left: 3px;
+width: 16px;
+height: 11px;
+background: url(http://www.starbucks.com/static/images/flagssprite_small.png) no-repeat 0 0;
+text-indent: 9999px;
+overflow: hidden;
+}
+.flag.en, .flag.en-us, .flag.us {
+background-position: -64px -187px;
+}
+
+/* //// Buttons ----------------------------------------- //// */
+
+/* default ----------------------------------------- */
+span.button a,
+span.button a:visited,
+span.button button,
+span.button input,
+span.button span {
+	margin:0 10px 0 0;
+	padding:.2857em 1.2857em; /* 4px 18px */
+	border:1px solid #2a8a15;
+	background-image:-moz-linear-gradient(top, #5CA61F 30%, #1F760C 100%);
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(30%, #5CA61F), color-stop(100%, #1F760C));
+	background-image:-webkit-linear-gradient(top, #5CA61F 30%, #1F760C 100%);
+	background-image:linear-gradient(top, #5CA61F 30%, #1F760C 100%);
+	background-color:#5CA61F;
+	color:#fff;
+	font-weight:bold;
+	line-height:1; /* 14px */
+	text-align:center;
+	cursor:pointer}
+span.button a:hover,
+span.button a:focus,
+span.button button:hover,
+span.button button:focus,
+span.button input:hover,
+span.button input:focus {
+	background-image:-moz-linear-gradient(top, #1F760C 0, #5CA61F 70%);
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #1F760C), color-stop(70%, #5CA61F));
+	background-image:-webkit-linear-gradient(top, #1F760C 0, #5CA61F 70%);
+	background-image:linear-gradient(top, #1F760C 0, #5CA61F 70%);
+	background-color:#1f760c}
+span.button a:active,
+span.button button:active,
+span.button input:active {
+	background:#1f760c;
+	outline:0}
+
+span.button button::-moz-focus-inner,
+span.button input::-moz-focus-inner {
+	border:0}
+
+/* variations ----------------------------------------- */
+
+/* ---- disabled ---- */
+/*
+span.disabled,
+span.disabled *,
+span.disabled:hover *,
+span.disabled:hover {
+	border:0;
+	background:transparent;
+	color:#686868}
+span.disabled *,
+span.disabled:hover * {
+	border:1px solid #dadada;
+	cursor:default}
+*/
+
+span.button span {
+	border-color:#ebedec;
+	background:#ebedec;
+	color:#000;
+	cursor:default}
+
+/* ---- loading ---- */
+span.button_loading {
+	position:relative;
+	top:1px;
+	margin-right:13px;
+	padding:.2857em 1.14286em;  /* 4px 16px */
+	border:1px solid #2a8a15;
+	background:#fff url(http://www.starbucks.com/static/images/ajax-button-loader.gif) no-repeat 50% 50%}
+span.button_loading a,
+span.button_loading a:visited,
+span.button_loading button,
+span.button_loading input {
+	visibility:hidden;
+	margin:0;
+	padding:0 0 0 1px;
+	border:0}
+
+/* ---- reset ---- */
+span.button_reset a,
+span.button_reset a:visited,
+span.button_reset button,
+span.button_reset input,
+span.button_reset span {
+	border-color:rgb(255,255,255);
+	border-color:rgba(255,255,255,0);
+	background:none;
+	color:#5ca61f}
+span.button_reset a:hover,
+span.button_reset a:focus,
+span.button_reset button:hover,
+span.button_reset button:focus,
+span.button_reset input:hover,
+span.button_reset input:focus {
+	background:transparent;
+	color:#2A8A15}
+span.button_reset a:active,
+span.button_reset button:active,
+span.button_reset input:active {
+	background:none}
+
+/* ---- search ---- */
+span.button_search a,
+span.button_search a:visited,
+span.button_search button,
+span.button_search input {
+	padding:5px 6px;
+	width:27px;
+	height:29px;
+	background:
+		url(http://www.starbucks.com/static/images/global/search.png) no-repeat 50% 50%;
+	background:
+		url(http://www.starbucks.com/static/images/global/search.png) no-repeat 50% 50%,
+		-moz-linear-gradient(top, #5CA61F 30%, #1F760C 100%);
+	background:
+		url(http://www.starbucks.com/static/images/global/search.png) no-repeat 50% 50%,
+		-webkit-gradient(linear, left top, left bottom, color-stop(30%, #5CA61F), color-stop(100%, #1F760C));
+	background:
+		url(http://www.starbucks.com/static/images/global/search.png) no-repeat 50% 50%,
+		-webkit-linear-gradient(top, #5CA61F 30%, #1F760C 100%);
+	background:
+		url(http://www.starbucks.com/static/images/global/search.png) no-repeat 50% 50%,
+		linear-gradient(top, #5CA61F 30%, #1F760C 100%);
+	background-color:#5CA61F;
+	text-indent:-9999px;
+	overflow:hidden}
+span.button_search a:hover,
+span.button_search a:focus,
+span.button_search button:hover,
+span.button_search button:focus,
+span.button_search input:hover,
+span.button_search input:focus {
+	background:
+		url(http://www.starbucks.com/static/images/global/search.png) no-repeat 50% 50%;
+	background:
+		url(http://www.starbucks.com/static/images/global/search.png) no-repeat 50% 50%,
+		-moz-linear-gradient(top, #1F760C 0, #5CA61F 70%);
+	background:
+		url(http://www.starbucks.com/static/images/global/search.png) no-repeat 50% 50%,
+		-webkit-gradient(linear, left top, left bottom, color-stop(0%, #1F760C), color-stop(70%, #5CA61F));
+	background:
+		url(http://www.starbucks.com/static/images/global/search.png) no-repeat 50% 50%,
+		-webkit-linear-gradient(top, #1F760C 0, #5CA61F 70%);
+	background:
+		url(http://www.starbucks.com/static/images/global/search.png) no-repeat 50% 50%,
+		linear-gradient(top, #1F760C 0, #5CA61F 70%);
+	background-color:#1f760c}
+
+
+
+
+
+/* //// Navigation ----------------------------------------- //// */
+#nav {
+	position:absolute;
+	z-index:400;
+	top:3.5em;
+	left:108px;
+	clear:both}
+#nav h3 {
+	display:none}
+#nav ul {
+	margin:0;
+	width:945px}
+#nav li {
+	display:inline;
+	float:left;
+	margin:0 0 0 5px}
+
+/* tab ----------------------------------------------- */
+#nav .tab {
+	display:block;
+	position:relative;
+	padding:2px 13px 0;
+	color:#000}
+#nav .tab strong {
+	position:relative;
+	font-weight:normal;
+	font-size:1.2857em; /* 18px */
+	text-decoration:none;
+	text-transform:uppercase}
+#nav .tab span {
+	position:relative;
+	top:-12px;
+	color:#53534a;
+	font-size:.7857em; /* 11px */
+	text-transform:none;
+	white-space:nowrap}
+
+/* ---- hover, focus ---- */
+#nav .tab:hover,
+#nav .tab:focus {
+	background:#fff;
+	color:#2A8A15}
+#nav .tab:hover span,
+#nav .tab:focus span {
+	color:#000}
+
+/* ---- background div ---- */
+#nav .tab div {
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	background:#1e1e1e}
+
+/* ---- open ---- */
+#nav .open .tab,
+#nav .open .tab:hover,
+#nav .open .tab:focus {
+	background:#1e1e1e;
+	color:#71b43a}
+#nav .open .tab span,
+#nav .open .tab:hover span,
+#nav .open .tab:focus span {
+	color:#fff}
+
+/* ---- current section ---- */
+.section_coffee #nav_coffee .tab strong,
+.section_menu #nav_menu .tab strong,
+.section_coffeehouse #nav_coffeehouse .tab strong,
+.section_responsibility #nav_responsibility .tab strong,
+.section_card #nav_card .tab strong,
+.section_shop #nav_shop .tab strong {
+	font-weight:bold;
+	color:#71b43a}
+#nav li a{
+text-decoration:none;
+}
+/*
+#nav li a:hover,
+#nav li a:focus,
+#nav li:hover a {
+*/
+	/* ie8.css */
+/*
+	position:relative;
+	z-index:1100;
+	padding:6px 23px 8px 7px;
+        text-decoration:none;
+	color:#04170a}
+*/
+
+/* JavaScript tab hover */
+/*
+.hasJS #nav li:hover a {
+	background:transparent}
+*/
+/*
+.hasJS #nav li a:hover {
+	padding:7px 24px 8px 8px;
+	border:0;
+	color:#000;
+        text-decoration:none;
+	background:transparent}
+*/
+
+/* menu ----------------------------------------------- */
+#nav .menu {
+	/* ie6.css */
+	visibility:hidden;
+	position:absolute;
+	z-index:1000;
+	left:5px;
+	width:916px;
+	-moz-box-shadow:0 3px 6px rgba(0,0,0,.2);
+	-webkit-box-shadow:0 3px 6px rgba(0,0,0,.2);
+	box-shadow:0 3px 6px rgba(0,0,0,.2);
+	background:#1e1e1e url(/static/images/global/pattern01.png) repeat 0 0;
+	color:#fff;
+	font-size:.9286em /* 13px */;
+	line-height:1.1538 /* 15px */}
+#nav .menu a {
+	color:#fff;
+        text-decoration:none;}
+
+/* hover */
+#nav li:hover .menu {
+	visibility:visible}
+
+/* with JS */
+.hasJS #nav .menu {
+	/* ie8.css */
+	visibility:visible;
+	display:none}
+
+/* ---- menu sections ---- */
+#nav .menu_sections {
+	float:left;
+	overflow:hidden;
+	padding:1em 13px;
+	width:644px;
+	min-height:206px; height:auto !important; height:206px;
+	background:#1e1e1e}
+#nav .menu_sections li {
+	margin:0 20px .25em 0;
+	width:141px}
+#nav .menu_sections li:nth-of-type(5) {
+	clear:both}
+
+#nav .menu_sections dt {
+	margin:0 0 .5em}
+#nav .menu_sections dd {
+	margin:0 0 .3em}
+
+/* ---- menu promo ---- */
+#nav .menu_promo {
+	float:right;
+	padding:1em 97px 0 0;
+	width:149px;
+	font-size:1.0769em; /* 14px */
+	line-height:1.357 /* 19px */}
+#nav .menu_promo a {
+	display:block;
+	position:relative;
+	left:12px;
+	float:left;
+	padding:5px}
+#nav .menu_promo img {
+	margin:0 0 1em}
+#nav .menu_promo p {
+	margin:0 0 .5em}
+
+/* ---- menu suggestion ---- */
+#nav .menu_suggestion {
+	float:left;
+	clear:both;
+	width:670px;
+	background:#1e1e1e}
+#nav .menu_suggestion .suggestion_title {
+	margin:0 7px .5em 0;
+	padding:.25em 13px;
+	background:#646463}
+#nav .menu_suggestion .suggestion_links {
+	padding:0 13px;
+	background:none}
+#nav .menu_suggestion .suggestion_links a {
+	font-weight:bold}
+
+
+
+  </style>
+
+  <script type="text/javascript">
+  //<![CDATA[
+document.documentElement.className += "hasJS";http://www.tumblr.com/docs/custom_themes
+  //]]>
+  </script>
+</head>
+
+<body class="hasJS">
+
+<div id="header">
+<ul id="skip">
+	<li><a href="#nav">skip to Main Navigation</a></li>
+	<li><a href="#content">skip to Main Content</a></li>
+	<li><a href="#footer">skip to Footer</a></li>
+</ul>
+        <a id="logo" href="http://www.starbucks.com" rel="home">Starbucks Coffee Company</a>
+</div>
+
+  <div id="container">
+    <div id="header">
+      <ul id="navigation">
+        {block:HasPages}
+          {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+        {/block:HasPages}
+        {block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
+        {block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+        <li><a href="#footer">{lang:About}</a></li>
+        <li><a href="/archive">{lang:Archive}</a></li>
+        <li><a href="{RSS}">{lang:RSS}</a></li>
+      </ul>
+      
+      <h1><a href="/">{Title}</a></h1>
+    </div> <!-- end #header -->
+  
+    <div id="posts">
+    {block:SearchPage}
+    <div id="searchresultcount">
+      {block:SearchResults}
+        <p>{lang:Your search for SearchQuery returned SearchResultCount results 2}</p>
+      {block:SearchResults}
+    
+      {block:NoSearchResults}
+        <p>{lang:No search results for SearchQuery 2}</p>
+      {block:NoSearchResults}
+    </div>
+    {/block:SearchPage}
+      
+    {block:Posts}
+      {block:Text}
+      <div class="text">
+        {block:Title}<h2>{Title}</h2>{/block:Title}
+        {Body}
+      {/block:Text}
+
+      
+      {block:Quote}
+      <div class="quote">
+        <blockquote class="words">&#8220;{Quote}&#8221;</blockquote>
+        {block:Source}<div class="source">{Source}</div>{/block:Source}
+      {/block:Quote}
+
+
+      {block:Link}
+      <div class="link">
+        <h2><a href="{URL}" {Target}>{Name}</a></h2>
+        {block:Description}
+        <div class="link-description">
+          {Description}
+        </div>
+        {/block:Description}
+      {/block:Link}
+
+      
+      {block:Video}
+      <div class="video">
+        {Video-500}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+      {/block:Video}
+      
+
+      
+      {block:Audio}
+      <div class="audio">
+        <span class="playcount">{lang:Played PlayCount times}</span>
+        {AudioPlayerBlack}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+      {/block:Audio}
+
+      
+      {block:Photo}
+      <div class="photo">
+        {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>{LinkCloseTag}
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+      {/block:Photo}
+
+			{block:Photoset}
+			<div class="photoset-post">
+				{Photoset-500}
+				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+			{/block:Photoset}
+      
+      
+      {block:Chat}
+      <div class="chat">
+        {block:Title}<h2>{Title}</h2>{/block:Title}
+        <ul class="convo">
+          {block:Lines}
+          <li class="{Alt}">
+            <span class="person">{block:Label}{Label}{/block:Label}</span>
+            <span class="line">{Line}</span>
+          </li>
+          {/block:Lines}
+        </ul>
+      {/block:Chat}
+      
+        <ul class="post-footer">
+          {block:RebloggedFrom}<li class="reblog">{lang:Reblogged from ReblogParentTitle 2}</li>{/block:RebloggedFrom}
+          {block:HasTags}<li class="tags">{lang:Tags}: <ul>{block:Tags}<li><a href="{TagURL}">{Tag}</a></li>{/block:Tags}</ul></li>{/block:HasTags}
+          {block:Date}<li class="date"><h3>{Month} {DayOfMonthWithZero}, {Year}, {12Hour}:{Minutes}{AmPm}{/block:Date}</h3>{block:IfShowNotes}{block:NoteCount}<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{NoteCountWithLabel}</h3>{/block:NoteCount}{/block:IfShowNotes}</li>
+          {block:Date}
+          {block:IfNotDisqusShortname}<li><a href="{Permalink}" class="permalink">{lang:Permalink}</a></li>{/block:IfNotDisqusShortname}
+		  {block:IfDisqusShortname}<li><a href="{Permalink}#disqus_thread" class="permalink">{lang:Comments}</a></li>{block:IfDisqusShortname}
+          {/block:Date}
+        </ul>
+      </div> <!-- end single post -->
+      {/block:Posts}
+
+      {block:Permalink}
+      {block:IfShowNotes}
+      {block:PostNotes}
+      <h4>{lang:Notes}</h4>
+      {PostNotes}
+      {block:PostNotes}
+      {/block:IfShowNotes}
+      
+	  {block:IfDisqusShortname}
+      <div id="disqus_thread"></div>
+      <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+      <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+      {/block:IfDisqusShortname}
+      {/block:Permalink}
+    </div> <!-- end posts -->
+    
+    {block:Pagination}
+    <div id="pagination">
+      {block:NextPage}<a href="{NextPage}">&larr; {lang:Older entries}</a>{/block:NextPage}
+      <span id="pagecount">{lang:Page CurrentPage of TotalPages}</span>
+      {block:PreviousPage}<a href="{PreviousPage}">{lang:Newer Entries} &rarr;</a>{/block:PreviousPage}
+    </div>
+    {/block:Pagination}
+    
+    {block:PermalinkPagination}
+    <div id="pagination">
+      {block:PreviousPost}<a href="{PreviousPost}">&larr; {lang:Previous post}</a>{/block:PreviousPost}
+      <span id="pagecount">&nbsp;</span>
+      {block:NextPost}<a href="{NextPost}">{lang:Next post} &rarr;</a>{/block:NextPost}
+    </div>
+    {/block:PermalinkPagination}
+
+
+
+
+
+<div id="nav">
+		
+		<h3>Navigation</h3>
+		<ul>
+
+	<li id="nav_coffee" class=""><a href="/coffee" class="tab"><strong>Coffee</strong><br>
+	<span>Beans Blends Brewing</span></a>
+	<div class="menu">
+		<ul class="menu_sections">
+			<li>
+			<dl>
+				<dt><a href="/coffee/whole-bean-coffee">Whole Bean Coffee</a></dt>
+				<dd><a href="/coffee/whole-bean-coffee/latin-america">Latin America</a></dd>
+				<dd><a href="/coffee/whole-bean-coffee/africa-arabia">Africa/Arabia</a></dd>
+				<dd><a href="/coffee/whole-bean-coffee/asia-pacific">Asia/Pacific</a></dd>
+				<dd><a href="/coffee/whole-bean-coffee/multi-region-blends">Multi-Region Blends</a></dd>
+				<dd><a href="/coffee/whole-bean-coffee/dark-and-specialty-roast">Dark &amp; Specialty Roast</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/coffee/via">Starbucks VIA® Ready Brew</a></dt>
+				<dd><a href="/coffee/via/instant-coffee">Starbucks VIA® Coffees</a></dd>
+				<dd><a href="/coffee/via/flavored-coffee">Starbucks VIA® Flavored Coffees</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/coffee/starbucks-reserve-coffee">Starbucks Reserve™ Coffee</a></dt>
+				<dd><a href="/coffee/starbucks-reserve-coffee/kona-coffee">Kona Coffee</a></dd>
+				<dd><a href="/coffee/starbucks-reserve-coffee/organic-blue-java">Organic Blue Java</a></dd>
+				<dd><a href="/coffee/starbucks-reserve-coffee/papua-new-guinea-arokara">Papua New Guinea Arokara</a></dd>
+				<dd><a href="/coffee/starbucks-reserve-coffee/organic-peru-tingo-maria">Organic Peru Tingo Maria</a></dd>
+				<dd><a href="/coffee/starbucks-reserve-coffee/el-salvador-montecarlos-estate-pacamara">El Salvador Montecarlos Estate Pacamara</a></dd>
+				<dd><a href="/coffee/starbucks-reserve-coffee/fair-trade-colombia-asoapia">Fair Trade Colombia Asoapia</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/coffee/starbucks-natural-fusions">Starbucks® Natural Fusions</a></dt>
+				<dd><a href="/coffee/starbucks-natural-fusions/vanilla">Vanilla</a></dd>
+				<dd><a href="/coffee/starbucks-natural-fusions/caramel">Caramel</a></dd>
+				<dd><a href="/coffee/starbucks-natural-fusions/cinnamon">Cinnamon</a></dd>
+				<dd><a href="/coffee/starbucks-natural-fusions/savoring">Savoring</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/coffee/learn">Learn More</a></dt>
+				<dd><a href="/coffee/learn/flavors-in-your-cup">Flavors in Your Cup</a></dd>
+				<dd><a href="/coffee/learn/clover">The Clover® Brewing System</a></dd>
+				<dd><a href="http://mystarbucksidea.force.com/ideaList?ext=0&amp;lsi=0&amp;category=Coffee+%26+Espresso+Drinks">My Starbucks Idea</a></dd>
+				<dd><a href="/customer-service/faqs/coffee">Coffee FAQs</a></dd>
+
+			</dl>
+			</li>
+		</ul>
+		<div class="menu_promo">
+			<a href="/coffee/whole-bean-coffee/multi-region-blends/tribute-blend"><img src="/assets/16d26a32ac9b45e69f15ce673613c50b.jpg" alt="Introbucing Starbucks Tribute Blend™"><p><strong>Starbucks Tribute Blend™</strong></p>   <p>A celebratory blend, 40 years in the making.</p> </a>
+		</div><div class="menu_suggestion">
+			<p class="suggestion_title">Looking for Coffee Beverages?</p><p class="suggestion_links"><a href="/menu/drinks/brewed-coffee">Brewed Coffee</a> . <a href="/menu/drinks/espresso">Espresso Beverages</a> . <a href="/menu/drinks/frappuccino-blended-beverages">Frappuccino® Blended Beverages</a></p>
+		</div>
+	</div>
+	</li>
+
+	<li id="nav_menu"><a href="/menu" class="tab"><strong>Menu</strong><br>
+	<span>Drinks Food Nutrition</span></a>
+	<div class="menu">
+		<ul class="menu_sections">
+			<li>
+			<dl>
+				<dt><a href="/menu/drinks">Drinks</a></dt>
+				<dd><a href="/menu/drinks/bottled-drinks">Bottled Drinks</a></dd>
+				<dd><a href="/menu/drinks/brewed-coffee">Brewed Coffee</a></dd>
+				<dd><a href="/menu/drinks/chocolate">Chocolate Beverages</a></dd>
+				<dd><a href="/menu/drinks/espresso">Espresso Beverages</a></dd>
+				<dd><a href="/menu/drinks/frappuccino-blended-beverages">Frappuccino® Blended Beverages</a></dd>
+				<dd><a href="/menu/drinks/kids-drinks-and-other">Kids’ Drinks &amp; Others</a></dd>
+				<dd><a href="/menu/drinks/tazo-tea">Tazo® Teas</a></dd>
+				<dd><a href="/menu/drinks/vivanno-smoothies">Vivanno™ Smoothies</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/menu/food">Food</a></dt>
+				<dd><a href="/menu/food/bakery">Bakery</a></dd>
+				<dd><a href="/menu/food/petites">Starbucks Petites</a></dd>
+				<dd><a href="/menu/food/fruit-and-snack-plates">Fruit &amp; Snack Plates</a></dd>
+				<dd><a href="/menu/food/hot-breakfast">Hot Breakfast</a></dd>
+				<dd><a href="/menu/food/salads">Salads</a></dd>
+				<dd><a href="/menu/food/sandwiches-panini-and-wraps">Sandwiches, Panini &amp; Wraps</a></dd>
+				<dd><a href="/menu/food/ice-cream">Ice Cream</a></dd>
+				<dd><a href="/menu/food/yogurt">Yogurt Parfaits</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/menu/nutrition">Nutrition</a></dt>
+				<dd><a href="/menu/nutrition/food">Food Nutrition</a></dd>
+				<dd><a href="/menu/nutrition/drink">Drink Nutrition</a></dd>
+				<dd><a href="/menu/nutrition/20-under-200">Delicious Drinks Under 200 Calories</a></dd>
+				<dd><a href="/menu/nutrition/35-under-350">Favorite Foods Under 350 Calories</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt>Learn More</dt>
+				<dd><a href="http://mystarbucksidea.force.com/ideaList?ext=0&amp;lsi=0&amp;category=Food">My Starbucks Idea</a></dd>
+				<dd><a href="/customer-service/faqs/menu">Menu FAQs</a></dd>
+
+			</dl>
+			</li>
+		</ul>
+		<div class="menu_promo">
+			<a href="/menu/food/petites"><img src="/assets/d9048bebebd44f86b915eb590dde9715.jpg" alt="Starbucks Petites"><p><strong>Discover Starbucks Petites</strong></p>   <p>Bite-sized treats with super-sized flavor.</p> </a>
+		</div><div class="menu_suggestion">
+			<p class="suggestion_title">Looking for Coffee at Home?</p><p class="suggestion_links"><a href="/coffee/whole-bean-coffee">Whole Bean Coffee</a> . <a href="/coffee/via">Starbucks VIA® Ready Brew</a></p>
+		</div>
+	</div>
+	</li>
+
+	<li id="nav_coffeehouse"><a href="/coffeehouse" class="tab"><strong>Coffeehouse</strong><br>
+	<span>Music Wi-Fi Community</span></a>
+	<div class="menu">
+		<ul class="menu_sections">
+			<li>
+			<dl>
+				<dt><a href="/coffeehouse/entertainment">Entertainment</a></dt>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/coffeehouse/wireless-internet">Wireless Internet</a></dt>
+				<dd><a href="/coffeehouse/wireless-internet/starbucks-digital-network">Starbucks Digital Network</a></dd>
+				<dd><a href="/coffeehouse/wireless-internet/in-canada">In Canada</a></dd>
+				<dd><a href="/coffeehouse/wireless-internet">In United States</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/coffeehouse/mobile-apps">Mobile Applications</a></dt>
+				<dd><a href="/coffeehouse/mobile-apps/mystarbucks">myStarbucks iPhone App</a></dd>
+				<dd><a href="/coffeehouse/mobile-apps/starbucks-card-mobile-bb">Starbucks Card Mobile App for BlackBerry</a></dd>
+				<dd><a href="/coffeehouse/mobile-apps/starbucks-card-mobile">Starbucks Card Mobile App for iPhone</a></dd>
+				<dd><a href="/coffeehouse/mobile-apps/starbucks-android">Starbucks for Android</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/coffeehouse/community">Online Community</a></dt>
+				<dd><a href="/coffeehouse/community/mystarbucksidea">MyStarbucksIdea.com</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/coffeehouse/store-design">Store Design</a></dt>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt>Learn More</dt>
+				<dd><a href="http://mystarbucksidea.force.com/ideaList?ext=0&amp;lsi=0&amp;category=Atmosphere+%26+Locations">My Starbucks Idea</a></dd>
+				<dd><a href="/customer-service/faqs/coffeehouse">Coffeehouse FAQs</a></dd>
+				<dd><a href="/store-locator">Store Locator</a></dd>
+
+			</dl>
+			</li>
+		</ul>
+		<div class="menu_promo">
+			<a href="http://www.starbucks.com/blog/a-musical-look-back-at-40"><img src="/assets/b1170308ee4844948bdda9b9549f573a.jpg" alt="40th Double Disc"><p><strong>The 40th Anniversary Collection</strong></p>   <p>Celebrating 40 years of amazing music.</p> </a>
+		</div><div class="menu_suggestion">
+			<p class="suggestion_title">Looking for Something Else?</p><p class="suggestion_links"><a href="/menu/drinks">Drinks</a> . <a href="/coffee/whole-bean-coffee">Whole Bean Coffee</a> . <a href="/about-us">About Us</a></p>
+		</div>
+	</div>
+	</li>
+
+	<li id="nav_responsibility"><a href="/responsibility" class="tab"><strong>Responsibility</strong><br>
+	<span>Ethical Local Global</span></a>
+	<div class="menu">
+		<ul class="menu_sections">
+			<li>
+			<dl>
+				<dt><a href="/responsibility/community">Community</a></dt>
+				<dd><a href="/responsibility/community/community-service">Community Service</a></dd>
+				<dd><a href="/responsibility/community/youth-action">Youth Action</a></dd>
+				<dd><a href="/responsibility/community/starbucks-red">(STARBUCKS) RED</a></dd>
+				<dd><a href="/responsibility/community/starbucks-foundation">Starbucks Foundation</a></dd>
+				<dd><a href="/responsibility/community/ethos-water-fund">Ethos® Water Fund</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/responsibility/sourcing">Ethical Sourcing</a></dt>
+				<dd><a href="/responsibility/sourcing/coffee">Coffee</a></dd>
+				<dd><a href="/responsibility/sourcing/farmer-support">Farmer Support</a></dd>
+				<dd><a href="/responsibility/sourcing/tea">Tea</a></dd>
+				<dd><a href="/responsibility/sourcing/cocoa">Cocoa</a></dd>
+				<dd><a href="/responsibility/sourcing/store-products">Store Products</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/responsibility/environment">Environment</a></dt>
+				<dd><a href="/responsibility/environment/recycling">Recycling &amp; Reducing Waste</a></dd>
+				<dd><a href="/responsibility/environment/energy">Energy</a></dd>
+				<dd><a href="/responsibility/environment/water">Water</a></dd>
+				<dd><a href="/responsibility/environment/green-building">Green Building</a></dd>
+				<dd><a href="/responsibility/environment/climate-change">Climate Change</a></dd>
+				<dd><a href="/responsibility/environment/explore-green-store">Explore Green Store</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/responsibility/diversity">Diversity</a></dt>
+				<dd><a href="/responsibility/diversity/suppliers">Suppliers</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/responsibility/wellness">Wellness</a></dt>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt>Learn More</dt>
+				<dd><a href="/responsibility/learn-more/starbucks-shared-planet">Starbucks™ Shared Planet™</a></dd>
+				<dd><a href="/responsibility/learn-more/goals-and-progress">Goals &amp; Progress</a></dd>
+				<dd><a href="/responsibility/learn-more/shared-values-blog">Shared Values Blog</a></dd>
+				<dd><a href="/responsibility/learn-more/relationships">Relationships</a></dd>
+				<dd><a href="/responsibility/learn-more/policies">Policies</a></dd>
+				<dd><a href="/customer-service/faqs/responsibility">Community Investments FAQs</a></dd>
+
+			</dl>
+			</li>
+		</ul>
+		<div class="menu_promo">
+			<a href="/responsibility/learn-more/goals-and-progress"><img src="/assets/50ae4cf7cfe3405d961ad55f6a86eec2.jpg" alt="Starbucks Shared Planet Goals and Progress"><p><strong>Starbucks™ Shared Planet™ Goals &amp; Progress</strong></p>   <p>Learn about our efforts to do business responsibly in 2009.</p> </a>
+		</div><div class="menu_suggestion">
+			<p class="suggestion_title">Looking for Starbucks Information?</p><p class="suggestion_links"><a href="/about-us">About Us</a> . <a href="/coffee">Coffee</a> . <a href="/menu/nutrition">Nutrition</a></p>
+		</div>
+	</div>
+	</li>
+
+	<li id="nav_card"><a href="/card" class="tab"><strong>Card</strong><br>
+	<span>Register Reload Rewards</span></a>
+	<div class="menu">
+		<ul class="menu_sections">
+			<li>
+			<dl>
+				<dt><a href="/shop/card">Buy a Card</a></dt>
+				<dd><a href="/shop/card/starbucks-card">Starbucks Card</a></dd>
+				<dd><a href="/shop/card/egift">Starbucks Card eGift</a></dd>
+				<dd><a href="/shop/card/customize">Customize a Card</a></dd>
+				<dd><a href="https://www.starbuckscardb2b.com/">Corporate Sales</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/card/manage">Manage Your Card</a></dt>
+				<dd><a href="/card/manage/register-your-card">Register Your Card</a></dd>
+				<dd><a href="/card/manage/check-your-balance">Check Your Balance</a></dd>
+				<dd><a href="/card/manage/reload-a-card">Reload Your Card</a></dd>
+				<dd><a href="https://www.starbucks.com/card/set-auto-reload">Set Auto-Reload</a></dd>
+				<dd><a href="/account/card">Transfer Funds</a></dd>
+				<dd><a href="/account/card">View Transactions</a></dd>
+				<dd><a href="/account/card/">Report Lost/Stolen</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/card/rewards">My Starbucks Rewards</a></dt>
+				<dd><a href="/card/rewards/program-information">Program Information</a></dd>
+				<dd><a href="/account">View Your Stars</a></dd>
+				<dd><a href="/card/rewards/card-rewards-canada">Card Rewards Canada</a></dd>
+				<dd><a href="/card/rewards/gold">Keep Your Gold Benefits</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt>Learn More</dt>
+				<dd><a href="/card/egift">What is a Starbucks Card eGift?</a></dd>
+				<dd><a href="/customer-service/faqs/card">Card FAQs</a></dd>
+				<dd><a href="/account">Manage Your Account</a></dd>
+				<dd><a href="http://mystarbucksidea.force.com/ideaList?ext=0&amp;lsi=0&amp;category=Starbucks+Card">My Starbucks Idea</a></dd>
+
+			</dl>
+			</li>
+		</ul>
+		<div class="menu_promo">
+			<a href="/shop/card"><img src="/assets/7416df3e3bde48a0839d220dc97d6124.jpg" alt="Send a Starbucks Card for Spring!"><p><strong>Send a Starbucks Card!</strong></p>   <p>It’s like fitting all the fresh fun of spring right in their pocket.</p> </a>
+		</div><div class="menu_suggestion">
+			<p class="suggestion_title">Looking for Starbucks Mobile Applications?</p><p class="suggestion_links"><a href="/coffeehouse/mobile-apps">Mobile Applications</a></p>
+		</div>
+	</div>
+	</li>
+
+	<li id="nav_shop"><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHTB&amp;Redir=" class="tab"><strong>Shop</strong><br>
+	<span>Search Compare Buy</span></a>
+	<div class="menu">
+		<ul class="menu_sections">
+			<li>
+			<dl>
+				<dt><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHCO&amp;Redir=%2Fcoffee%2F">Coffee</a></dt>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHCO&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D8100%26SubClassNo%3D8750">Latin America Coffees</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHCO&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D8100%26SubClassNo%3D8751">Africa/Arabia Coffees</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHCO&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D8100%26SubClassNo%3D8752">Asia/Pacific Coffees</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHCO&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D8100%26SubClassNo%3D0153">Multi-Region Blends</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHCO&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D8100%26SubClassNo%3D0171">Specialty Roasts</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHCO&amp;Redir=%2Fvia%2F">Instant Coffees</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHCO&amp;Redir=%2FStarbucksAtHome%2F">Subscriptions</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHCO&amp;Redir=%2Foffice%2F">For Business</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHTZ&amp;Redir=%2Ftazo%2Dtea%2F">Tazo® Tea</a></dt>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHTZ&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D0027%26SubClassNo%3D0174">Black Teas</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHTZ&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D0027%26SubClassNo%3D0176">Green Teas</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHTZ&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D0027%26SubClassNo%3D0973">White Teas</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHTZ&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D0027%26SubClassNo%3D0178">Herbal Infusions</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHTZ&amp;Redir=%2FStarbucksAtHome%2F">Subscriptions</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHTZ&amp;Redir=%2Foffice%2F">For Business</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHEQ&amp;Redir=%2Fequipment%2Easp">Brewing Equipment</a></dt>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHEQ&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D0036%26SubClassNo%3D0966">Coffee Presses</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHEQ&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D0036%26SubClassNo%3D0266">Coffeemakers</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHEQ&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D0036%26SubClassNo%3D0950">Espresso Machines</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHEQ&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D0036%26SubClassNo%3D0970">Grinders</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt><a href="/shop/card">Buy a Card</a></dt>
+				<dd><a href="/shop/card">Give a Card</a></dd>
+				<dd><a href="/shop/card/customize">Customize a Card</a></dd>
+				<dd><a href="https://www.starbuckscardb2b.com/">Corporate Buying</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt>Merchandise</dt>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHTUM&amp;Redir=%2Fproducts%2Fshprodli%2Easp%3FDeptNo%3D8100%26ClassNo%3D0035%26SubClassNo%3D0262%26cpnum%3DDRINKWARE">Drinkware</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHGF&amp;Redir=%2FGiftIdeas%2F">Gift Packs</a></dd>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHMU&amp;Redir=%2Fentertainment%2F">Music CDs</a></dd>
+
+			</dl>
+			</li><li>
+			<dl>
+				<dt>Learn More</dt>
+				<dd><a href="http://www.starbucksstore.com/aff/adredir.asp?CCAID=SBPTPAHP1SHABT&amp;Redir=%2Fproducts%2Fshabotus%2Easp">About Starbucks Store</a></dd>
+				<dd><a href="http://mystarbucksidea.force.com/ideaList?ext=0&amp;lsi=0&amp;category=Merchandise+%26+Music">My Starbucks Idea</a></dd>
+				<dd><a href="/customer-service/faqs/shop">Shop FAQs</a></dd>
+
+			</dl>
+			</li>
+		</ul>
+		<div class="menu_promo">
+			<a href="http://www.starbucksstore.com/coffee-machines/?CCAID=SBPTPAHPODEA"><img src="/assets/095c195acda948c4bee84fd51eb448a5.jpg" alt="Enjoy espresso at home"><p><strong>Enjoy Our Espresso at Home</strong></p>   <p>Find espresso machines, coffee presses and more in our online store.</p> </a>
+		</div><div class="menu_suggestion">
+			<p class="suggestion_title">Looking for the Menu?</p><p class="suggestion_links"><a href="/menu/drinks">Drinks</a> . <a href="/menu/food">Food</a> . <a href="/coffee/whole-bean-coffee">Whole Bean Coffee</a></p>
+		</div>
+	</div>
+	</li>
+
+</ul>
+	</div>
+
+
+
+
+
+    
+  </div> <!-- end container -->
+  
+  
+  <div id="footer">
+    <div id="footer-contain">
+      
+      <div id="footer-left">
+        <!-- Twitter Badge -->
+        <!-- Uncomment and change username to use -->
+        <!--
+        <h3 id="twitter">Latest Tweet</h3>
+        <ul id="twitter_update_list">
+          <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+          <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/username.json?count=1&amp;callback=twitterCallback2"></script>
+        </ul>
+        -->
+        
+        <h3 id="about">{lang:About}</h3>
+        {Description}
+      </div>
+
+      <div id="footer-middle">
+        <h3 id="blogroll">Blogroll</h3>
+        {block:Following}
+        <ul id="following">
+          {block:Followed}
+          <li><a href="{FollowedURL}" title="{FollowedTitle}"><img src="{FollowedPortraitURL-30}" alt="{FollowedName}"/></a></li>
+          {/block:Followed}
+        </ul>
+        {/block:Following}
+      </div>
+
+      <div id="footer-right">      
+        <h3 id="search-title">{lang:Search}</h3>
+        <div id="search">
+          <form action="/search" method="get">
+              <input type="text" name="q" value="{SearchQuery}" size="17"/>
+              <input type="submit" value="Search"/>
+          </form>
+        </div>
+        
+        <h3 id="colophon">Colophon</h3>
+        <p>This tumblelog is powered by <a href="http://tumblr.com/">Tumblr</a> and was designed by <a href="http://cubicle17.com/">Bill Israel</a>.</p>
+      </div>
+      
+    </div> <!-- end footer contain -->
+  </div> <!-- end footer -->
+<div id="utilities">
+	<div id="utility_links">
+		<ul>
+			<li><a href="https://www.starbucks.com/account">Sign In</a></li>
+			<li><a href="http://www.starbucks.com/customer-service">Customer Service</a></li>
+
+<li id="international">
+					<a class="current" href="#international">
+						<span class="flag us" title="United States">en-US</span>
+						Select Location
+					</a>
+
+					<div class="locations">
+					</div>
+				</li>
+
+			<li><a href="http://www.starbucks.com/store-locator">Find a Store</a></li>
+		</ul>
+	</div>
+	<form id="starbucks_search" method="get" action="http://www.starbucks.com/search">
+		<fieldset>
+			<input id="searchbox" name="keywords" title="Search keyword" maxlength="100" class="search_input hint">
+			<span class="button button_search">
+				<button type="submit" id="submit_search_util">Search</button>
+			</span>
+		</fieldset>
+	</form>
+</div>
+
+
+	{block:IfDisqusShortname}
+  <script type="text/javascript">
+  //<![CDATA[
+  (function() {
+      var links = document.getElementsByTagName('a');
+      var query = '?';
+      for(var i = 0; i < links.length; i++) {
+      if(links[i].href.indexOf('#disqus_thread') >= 0) {
+          query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+      }
+      }
+      document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+  })();
+  //]]>
+  </script>
+  {/block:IfDisqusShortname}
+
+</body>
+</html>
